@@ -1,5 +1,5 @@
-#include <iostream>
 #include <SDL.h>
+#include "utility/Logger.h"
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -9,14 +9,14 @@ int main(int argc, char *argv[]) {
     SDL_Surface* surface = nullptr;
 
     if(SDL_Init(SDL_INIT_EVERYTHING) != 0) {
-        std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
+        Logger::Log(Logger::ERROR, "SDL_Init Error: {}", SDL_GetError());
         return 1;
     }
 
     window = SDL_CreateWindow("Boid Simulation", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
     if (window == nullptr) {
-        std::cout << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
+        Logger::Log(Logger::ERROR, "SDL_CreateWindow Error: {}", SDL_GetError());
         return 1;
     }
 
