@@ -5,8 +5,10 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(SDL2 CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
+find_package(fmt CONFIG REQUIRED)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp
+        utility/Logger.h)
 
 target_link_libraries(${PROJECT_NAME}
         PRIVATE
@@ -15,3 +17,4 @@ target_link_libraries(${PROJECT_NAME}
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE imgui::imgui)
 
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
