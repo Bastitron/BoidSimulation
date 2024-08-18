@@ -4,6 +4,7 @@
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
 #include "utility/Logger.h"
+#include "utility/ImMoonlight.h"
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -30,7 +31,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC |SDL_RENDERER_ACCELERATED);
 
     if (renderer == nullptr) {
         Logger::Log(Logger::ERROR, "SDL_CreateRenderer Error: {}", SDL_GetError());
@@ -46,7 +47,7 @@ int main(int argc, char *argv[]) {
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 
-    ImGui::StyleColorsDark();
+    ImMoonlight::Setup();
 
     ImGui_ImplSDL2_InitForSDLRenderer(window, renderer);
     ImGui_ImplSDLRenderer2_Init(renderer);
@@ -74,7 +75,26 @@ int main(int argc, char *argv[]) {
 
         /* ImGUI Stuff here */
 
-        ImGui::ShowDemoWindow();
+        ImGui::Begin("Controller");
+
+        if(ImGui::CollapsingHeader("Debug")) {
+            SDL_RendererInfo info;
+            SDL_GetRendererInfo(renderer, &info);
+
+            ImGui::Text("Application average : %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
+            ImGui::Text("Renderer : %s", info.name);
+        }
+
+        ImGui::Separator();
+
+        bool dummy = true;
+
+        ImGui::Text("Rules");
+        ImGui::Checkbox("Rule 1 - Separation", &dummy);
+        ImGui::Checkbox("Rule 2 - Alignment", &dummy);
+        ImGui::Checkbox("Rule 3 - Cohesion", &dummy);
+
+        ImGui::End();
 
         /*------------------*/
 
