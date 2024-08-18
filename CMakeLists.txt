@@ -8,7 +8,12 @@ find_package(imgui CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 
 add_executable(${PROJECT_NAME} main.cpp
-        utility/Logger.h)
+        utility/Logger.h
+        utility/ImMoonlight.h
+        Boid.cpp
+        Boid.h
+        Rules.cpp
+        Rules.h)
 
 target_link_libraries(${PROJECT_NAME}
         PRIVATE
