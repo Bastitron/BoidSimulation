@@ -6,6 +6,8 @@ A simple Boid Simulation application that replicates the movement patterns obser
 
 - Gui for controlling rules and so on
 - [Google code style guide](https://google.github.io/styleguide/cppguide.html)
+- [Planned] Colission boxes
+- [Planned] Predator boids
 
 ## Build instructions
 
