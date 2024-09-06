@@ -1,16 +1,14 @@
 #pragma once
 
 #include <iostream>
+
 #include <fmt/core.h>
 
-
-#define ANSI_COLOR_RED     "\x1b[31m"
-#define ANSI_COLOR_GREEN   "\x1b[32m"
-#define ANSI_COLOR_YELLOW  "\x1b[33m"
-#define ANSI_COLOR_BLUE    "\x1b[34m"
-#define ANSI_COLOR_MAGENTA "\x1b[35m"
-#define ANSI_COLOR_CYAN    "\x1b[36m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
+#define ANSI_COLOR_RED      "\x1b[31m"
+#define ANSI_COLOR_GREEN    "\x1b[32m"
+#define ANSI_COLOR_YELLOW   "\x1b[33m"
+#define ANSI_COLOR_GRAY     "\x1b[90m"
+#define ANSI_COLOR_RESET    "\x1b[0m"
 
 namespace Logger {
 
@@ -29,6 +27,8 @@ namespace Logger {
                     return ANSI_COLOR_RED "ERR | " ANSI_COLOR_RESET;
                 case DEBUG:
                     return ANSI_COLOR_YELLOW "DEB | " ANSI_COLOR_RESET;
+                default:
+                    return ANSI_COLOR_GRAY "UNK | " ANSI_COLOR_RESET;
             }
         }
     }
