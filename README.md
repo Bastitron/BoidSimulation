@@ -5,9 +5,8 @@ A simple Boid Simulation application that replicates the movement patterns obser
 ## Features
 
 - Gui for controlling rules and so on
-- [Google code style guide](https://google.github.io/styleguide/cppguide.html)
-- [Planned] Colission boxes
-- [Planned] Predator boids
+- [Maybe] Colission boxes
+- [Maybe] Predator boids
 
 ## Build instructions
 
@@ -17,6 +16,7 @@ A Win64 build is provided under releases.
   ./vcpkg install imgui[sdl2-renderer-binding]
   ./vcpkg install sdl2
   ./vcpkg install fmt
+  ./ vcpkg install sdl2-image
 ```
 
 ### Dependencies
@@ -25,5 +25,6 @@ A Win64 build is provided under releases.
 - [SDL2](https://vcpkg.link/ports/sdl2)
 - [ImGUI](https://vcpkg.link/ports/imgui)
 - [fmt](https://vcpkg.io/en/package/fmt)
+- [SDL2_Image](https://vcpkg.io/en/package/sdl2-image)
 
 
