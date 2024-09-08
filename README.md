@@ -16,7 +16,7 @@ A Win64 build is provided under releases.
   ./vcpkg install imgui[sdl2-renderer-binding]
   ./vcpkg install sdl2
   ./vcpkg install fmt
-  ./ vcpkg install sdl2-image
+  ./vcpkg install sdl2-image
 ```
 
 ### Dependencies
